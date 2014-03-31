@@ -57,6 +57,9 @@ $default-animation-class-mode: true !default;
         @include animation-properties($properties);
       }
     }
+    @if $class == silent {
+      @include animation-properties($properties);
+    }
 
   } @else {
     @include animation-properties($properties);

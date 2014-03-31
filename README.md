@@ -126,7 +126,9 @@ You can also set `$class` to `true`, `false`, `nested`, `silent` or `null`
 
 All will output the keyframes except nested, but the way the classes are setup will change.
 
-true: Will give you the animation name as a class, and an animated class name to control the animation.
+
+## USING THE TRUE METHOD
+_This will give you the animation name as a class, and an animated class name to control the animation._
 ```
 .flash {
   -webkit-animation-name: flash;
@@ -148,68 +150,9 @@ true: Will give you the animation name as a class, and an animated class name to
           animation-timing-function: ease-in-out; }
 ```
 
-false: Will set all animation & control under the animation name class:
 
-```
-.flash {
-  -webkit-animation-name: flash;
-  -moz-animation-name: flash;
-  -o-animation-name: flash;
-  -ms-animation-name: flash;
-  animation-name: flash;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  -moz-animation-timing-function: ease-in-out;
-  -o-animation-timing-function: ease-in-out;
-  -ms-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-}
-```
-nested: will allow you to use your own custom class name:
-
-```
-.customAnimation {
-  @include animate-flash($properties: default, $class: nested);
-}
-
-```
-
-Will result in:
-
-```
-
-.customAnimation {
-  -webkit-animation-name: flash;
-  -moz-animation-name: flash;
-  -o-animation-name: flash;
-  -ms-animation-name: flash;
-  animation-name: flash;
-  -webkit-animation-duration: 1s;
-  -moz-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-  -moz-animation-timing-function: ease-in-out;
-  -o-animation-timing-function: ease-in-out;
-  -ms-animation-timing-function: ease-in-out;
-  animation-timing-function: ease-in-out;
-}
-
-```
-
-You may want to use the `getKeyframes()` mixin to now get the animations keyframes after this.
-
-```@include getKeyframes(flash);```
-
-This will only pull the keyframes for the flash animation, note: Keyframes should always be at the root level, never nested below a selector.
-
-nested: This will not output the animation properties within the style name or append a animated class name to it:
-
+## USING THE FALSE METHOD
+_This will setup all animation under the animation name as a class._
 ```
 .flash {
   -webkit-animation-name: flash;
@@ -217,11 +160,48 @@ nested: This will not output the animation properties within the style name or a
        -o-animation-name: flash;
       -ms-animation-name: flash;
           animation-name: flash;
+  -webkit-animation-duration: 1s;
+     -moz-animation-duration: 1s;
+       -o-animation-duration: 1s;
+      -ms-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+     -moz-animation-timing-function: ease-in-out;
+       -o-animation-timing-function: ease-in-out;
+      -ms-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 
-// ## USING THE SILENT METHOD
 
-@include animate-fadeIn(1s ease-in-out, silent);
+
+
+
+
+## USING THE NESTED METHOD
+_Nested will include the animation under a custom or user defined classname_
+_Note: You will have to include the keyframes for this animation if you're using this method. `@include getKeyframes(fadeIn);`_
+
+```
+
+.fadeInCustom {
+  @include animate-fadeIn(null, nested);
+}
+
+// Results >>>
+
+.fadeInCustom {
+  -webkit-animation-name: flash;
+     -moz-animation-name: flash;
+       -o-animation-name: flash;
+      -ms-animation-name: flash;
+          animation-name: flash;
+}
+```
+## USING THE SILENT METHOD
+_This will create a placeholder for us to extend the original animation_
+
+```
+@include animate-fadeIn(null, silent);
 .customFadeIn { @extend %fadeIn; }
 // Results >>>
 .customFadeIn {
@@ -234,6 +214,46 @@ nested: This will not output the animation properties within the style name or a
 
 
 ```
+
+## USING THE NULL METHOD
+_This will still create a classname with the animation name and import keyframes, however it will not return any properties or a control class_
+
+```
+@include animate-fadeIn(default, null);
+
+// Result >>>
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+     -moz-animation-name: fadeIn;
+       -o-animation-name: fadeIn;
+      -ms-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+
+```
+
 
 You can define a main class to control all your animations.
 

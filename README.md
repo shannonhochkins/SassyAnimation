@@ -223,26 +223,6 @@ _This will still create a classname with the animation name and import keyframes
 
 // Result >>>
 
-@-webkit-keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@-moz-keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@-o-keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
 .fadeIn {
   -webkit-animation-name: fadeIn;
      -moz-animation-name: fadeIn;

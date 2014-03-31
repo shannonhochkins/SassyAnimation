@@ -31,15 +31,21 @@ each one with or without it's related class name.
 The most basic option is simply:
 
 ```scss
-// Include all the animation keyframes:
+// Include all the animation & keyframes:
 @include animate;
 ```
 
 But you can get much more detailed:
 
 ```scss
-// Temlate:
-// @include animate[-animationName]([$sub: all, $class: false]);
+// Template:
+@include animate[-animationName]([$sub: all, $properties: default, $class: false]);
+// Example - This will pull in all the fade animations
+@include animate-fade($sub: all, $properties: default, $class: false);
+// This will pull in only the fadeIn animation & keyframes
+@include animate-fadeIn($properties: 1s ease-in-out);
+
+
 ```
 
 Let's say you want just the "flash" animation:

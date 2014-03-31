@@ -127,7 +127,7 @@ You can also set `$class` to `true`, `false`, `nested`, `silent` or `null`
 All will output the keyframes except nested, but the way the classes are setup will change.
 
 
-## USING THE TRUE METHOD
+# USING THE TRUE METHOD
 _This will give you the animation name as a class, and an animated class name to control the animation._
 ```
 .flash {
@@ -151,7 +151,7 @@ _This will give you the animation name as a class, and an animated class name to
 ```
 
 
-## USING THE FALSE METHOD
+# USING THE FALSE METHOD
 _This will setup all animation under the animation name as a class._
 ```
 .flash {
@@ -173,11 +173,11 @@ _This will setup all animation under the animation name as a class._
 }
 
 
+```
 
 
 
-
-## USING THE NESTED METHOD
+# USING THE NESTED METHOD
 _Nested will include the animation under a custom or user defined classname_
 _Note: You will have to include the keyframes for this animation if you're using this method. `@include getKeyframes(fadeIn);`_
 
@@ -197,7 +197,7 @@ _Note: You will have to include the keyframes for this animation if you're using
           animation-name: flash;
 }
 ```
-## USING THE SILENT METHOD
+# USING THE SILENT METHOD
 _This will create a placeholder for us to extend the original animation_
 
 ```
@@ -215,7 +215,7 @@ _This will create a placeholder for us to extend the original animation_
 
 ```
 
-## USING THE NULL METHOD
+# USING THE NULL METHOD
 _This will still create a classname with the animation name and import keyframes, however it will not return any properties or a control class_
 
 ```

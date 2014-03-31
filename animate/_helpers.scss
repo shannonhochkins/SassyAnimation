@@ -35,8 +35,6 @@ $default-animation-class-mode: true !default;
   }
   // if we're true, base level, else, nested.
   $selector: if($class == false, "." + $default-animated-class-name, "&." + $default-animated-class-name);
-  
-
 
   @if $class != nested {
     // We are not nested
@@ -58,7 +56,8 @@ $default-animation-class-mode: true !default;
         // An animation style has called the mixin, do not wrap it.
         @include animation-properties($properties);
       }
-    }  
+    }
+
   } @else {
     @include animation-properties($properties);
   }
@@ -85,10 +84,9 @@ $default-animation-class-mode: true !default;
   $properties : $default-animation-properties,
   $class      : $default-animated-class-mode
 ) {   
-  // @if $properties != null {
-  //   $class: true;
-  // } 
-  $selector: ('.' + $name);
+  
+  $selector: if($class == silent, "%" + $name, "." + $name);
+
   @if $class != nested {
 
     #{$selector} {

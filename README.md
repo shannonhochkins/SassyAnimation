@@ -31,7 +31,7 @@ each one with or without it's related class name.
 The most basic option is simply:
 
 ```scss
-// Include all the animation & keyframes:
+// Include all the animations & keyframes:
 @include animate;
 ```
 
@@ -42,8 +42,9 @@ But you can get much more detailed:
 @include animate[-animationName]([$sub: all, $properties: default, $class: false]);
 // Example - This will pull in all the fade animations
 @include animate-fade($sub: all, $properties: default, $class: false);
-// This will pull in only the fadeIn animation & keyframes
-@include animate-fadeIn($properties: 1s ease-in-out);
+// _note: only groups have the $sub variable, (fade, attention, special, roll etc)_
+// This will pull in only the fadeIn animation & keyframes & Overwrite the default animation properties
+@include animate-fadeIn($properties: 0.2s ease-in);
 
 
 ```
@@ -121,7 +122,7 @@ Now you have the named keyframes
 for the "flash" animation
 and a class name that you can use in your HTML, as well as an animated class which will control the animation for the animation style.
 
-You can also set `$class` to `true`, `false`, `nested` or `null`
+You can also set `$class` to `true`, `false`, `nested`, `silent` or `null`
 
 All will output the keyframes except nested, but the way the classes are setup will change.
 
@@ -212,13 +213,27 @@ nested: This will not output the animation properties within the style name or a
 ```
 .flash {
   -webkit-animation-name: flash;
-  -moz-animation-name: flash;
-  -o-animation-name: flash;
-  -ms-animation-name: flash;
-  animation-name: flash;
+     -moz-animation-name: flash;
+       -o-animation-name: flash;
+      -ms-animation-name: flash;
+          animation-name: flash;
 }
-```
 
+// ## USING THE SILENT METHOD
+
+@include animate-fadeIn(1s ease-in-out, silent);
+.customFadeIn { @extend %fadeIn; }
+// Results >>>
+.customFadeIn {
+  -webkit-animation-name: fadeIn;
+     -moz-animation-name: fadeIn;
+       -o-animation-name: fadeIn;
+      -ms-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+
+```
 
 You can define a main class to control all your animations.
 

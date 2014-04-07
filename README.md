@@ -370,6 +370,11 @@ This plugin includes the following _mixins_ & animations:
 - lightSpeedIn
 - lightSpeedOut
 
+**Scale**
+- _scale_
+- scaleIn
+- scaleOut
+
 **Special**
 - _special_
 - hinge

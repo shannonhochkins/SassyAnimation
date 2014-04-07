@@ -8,9 +8,9 @@
 
 @import "helpers";
 @import "getKeyframes";
-@import "animations/compass/prefix";
-@import "animations/compass/animation";
-@import "animations/compass/keyframes";
+@import "animations/custom_mixins/prefix";
+@import "animations/custom_mixins/animation";
+@import "animations/custom_mixins/keyframes";
 @import "animations/attention";
 @import "animations/bounce";
 @import "animations/fade";

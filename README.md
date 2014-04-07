@@ -6,9 +6,7 @@ SassyAnimate
 
 This is a restructured port of 
 Eric Meyer's [animate.css][animate]
-by [Dan Eden][dan]. This doesn't
-require compass, I have pulled out some functions
-from compass, and implemented them myself.
+by [Dan Eden][dan]. This plugin will not work without compass.
 
 
 ```scss

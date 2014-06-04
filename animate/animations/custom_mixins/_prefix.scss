@@ -8,11 +8,11 @@ $prefix-for-opera:     true !default;
 $prefix-for-spec:      true !default; // required for keyframe mixin
 
 @mixin prefix ($property, $value, $prefixes) {
-  -webkit-#{$property}: $value;
-     -moz-#{$property}: $value;
-      -ms-#{$property}: $value;
-       -o-#{$property}: $value;
-          #{$property}: $value;
+      -webkit-#{$property}: $value;
+         -moz-#{$property}: $value;
+          -ms-#{$property}: $value;
+           -o-#{$property}: $value;
+              #{$property}: $value;
 }
 
 @mixin disable-prefix-for-all() {

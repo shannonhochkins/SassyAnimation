@@ -15,3 +15,5 @@ $default-animation-properties: 1s ease-in-out;
 $default-keyframes-output: true;
 
 
+@include animate;
+
